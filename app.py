@@ -108,5 +108,15 @@ def editcert():
     return render_template('userDashboard.html',**dashdata)
 
 
+@app.route('/logout')
+def logout():
+    global dashdata,loginstat,Name,Loginid,profadd,certadd
+    loginstat=False
+    Name=""
+    Loginid=""
+    return render_template('index.html',**{'LOGIN':'LOGIN'})
+
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=3000,debug=True)

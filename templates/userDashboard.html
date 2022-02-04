@@ -54,7 +54,7 @@
             <a href="index.html#infrastructure">INFRASTRUCTURE</a>
             <a href="index.html#vaccination">VACCINATION</a>
             <a href="index.html#contactus">CONTACT US</a>
-            <a href="#">LOGOUT</a>
+            <a href="/logout">LOGOUT</a>
     </div>
         <nav class="both"id="navbar-dash">
             <button class="slider" id="slider1" onclick="open_menu()"><ul><li id="d0"></li><li id="d1"></li><li></li></ul>&nbspDashboard</button>
@@ -113,7 +113,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="table-heading">Sr.No.</th>
+                                    <!-- <th class="table-heading">Sr.No.</th> -->
                                     <th class="table-heading">Date</th>
                                     <th class="table-heading">Time</th>
                                     <th class="table-heading">Status</th>
@@ -122,7 +122,7 @@
                             <tbody>
                                 {% for row in value %}
                                 <tr>
-                                    <td>{{row[0]}}</td>
+                                    <!-- <td>{{row[0]}}</td> -->
                                     <td>{{row[1]}}</td>
                                     <td>{{row[2]}}</td>
                                     <td>{{row[3]}}</td>

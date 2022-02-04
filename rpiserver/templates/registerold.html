@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+    <title>Society Monitoring System</title>
+    <link rel="stylesheet" href="../static/registerStyle.css">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="../static/images/logo.png"></a>
+            <div class="head">
+                <h1>SOCIETY MONITORING SYSTEM</h1>
+                <p>Initiated to register new Member</p>   
+            </div>
+        </nav>
+        <div class="main-frame">
+            <form action="/register-new-member" , method="post">
+                <input type="text" , class="in" , id="fname", name="Fname" placeholder="Enter your First Name">
+                <input type="text" , class="in" , id="mname", name="Mname" placeholder="Enter your Middle Name">
+                <input type="text" , class="in" , id="sname", name="Sname" placeholder="Enter your Surname">
+                <button type="submit" ,class="btn">Submit</button>
+            </form>
+        </div>
+       	<p class="sts">After clicking on submit tap new RFID Tag that is to be registered</p>
+       	{% with messages = get_flashed_messages() %}
+       		{% if messages %}
+       			{% for messages in messages %}
+       				<h3>{{ message }}</h3>
+       			{% endfor %}
+       		{% endif %}
+       	{% endwith %}
+    </section>
+    </body>
+
+</html>

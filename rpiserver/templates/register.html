@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Responsive Registration Form | CodingLab </title>
+  <link rel="stylesheet" href="../static/register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Registration of new user</div>
+    <div class="content">
+      <form action="/register-new-member" , method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" name="Fname" placeholder="Enter your first name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Middle Name</span>
+            <input type="text" name="Mname" placeholder="Enter your middle name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" name="Sname" placeholder="Enter your last name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" name="Email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" name="Phonenum" placeholder="Enter your phone number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Flat Number</span>
+            <input type="text" name="Flatnum" placeholder="Enter your flat number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Registration Date</span>
+            <input type="date" name="Regdate" placeholder="Enter your registration date" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="date" name="DOB" placeholder="Enter your Date of Birth" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="pswd1" name="Password" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" id="pswd2" name="Password" onpointerleave="matchPassword()"
+              placeholder="Confirm your password" required>
+            <p id="note"></p>
+          </div>
+        </div>
+        <div class="vaccine-details">
+          <input type="radio" value="Fully Vaccinated" name="vaccine" id="dot-1">
+          <input type="radio" value="Partially Vaccinated" name="vaccine" id="dot-2">
+          <input type="radio" value="Not Vaccinated" name="vaccine" id="dot-3">
+          <span class="vaccine-title">Are you vaccinated?</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="vaccine">Fully vaccinated</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="vaccine">Partially vaccinated</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="vaccine">Not vaccinated</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="frontline-details">
+          <input type="radio" value="Yes" name="frontline" id="dot-4">
+          <input type="radio" value="No" name="frontline" id="dot-5">
+          <span class="frontline-title">Are you frontline worker?</span>
+          <div class="category">
+            <label for="dot-4">
+              <span class="dot four"></span>
+              <span class="frontline">Yes</span>
+            </label>
+            <label for="dot-5">
+              <span class="dot five"></span>
+              <span class="frontline">No</span>
+            </label>
+
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+<script>
+  function matchPassword() {
+    var pw1 = document.getElementById("pswd1").value;
+    var pw2 = document.getElementById("pswd2").value;
+    var note = document.getElementById("note");
+    console.log(pw1);
+    console.log(pw2);
+    if (pw1 != pw2) {
+      // alert("Passwords did not match");  
+      note.innerHTML = "Password does not match";
+    } else {
+      // alert("Password created successfully"); 
+      note.innerHTML = ""
+    }
+  }
+</script>
+
+</html>

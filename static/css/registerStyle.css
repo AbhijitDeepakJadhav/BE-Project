@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav img{
+    width: 100px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.head {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 235px;
+}
+
+.head h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.head p{
+    font-size: 2.6rem;
+    text-align: center;
+    color: chartreuse;
+}
+
+.main-frame{
+    /* border: solid wheat 2px; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+
+
+.data{
+    border: 2px solid white ;
+    padding: 2px;
+    background-color: ghostwhite;
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.atr{
+    font-weight: bold;
+}
+
+.sts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 26px;
+    font-size: 31px;
+}
+
+.in {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 263px;
+    margin: 12px auto;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: white;
+    color: darkblue;
+}
+
+.main-frame button {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    height: 36px;
+    width: 125px;
+    margin: 30px auto;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+}
+
+.main-frame button:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}

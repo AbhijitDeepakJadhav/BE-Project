@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Monitoring System | Dashboard</title>
+    <link rel = "icon" href ="../static/images/logo.jpg" type = "image/x-icon">
+    <link rel="stylesheet" href="../static/css/userDash.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.1/css/all.css">
+</head>
+<body>
+
+
+    <div class="pop" id="popup">
+        <button id="close-sign-pop" onclick="pop_close()">
+            <i class="fas fa-times close-btn"></i>
+        </button>
+        <div class="certiframe">
+                <iframe src="{{certaddress}}" ></iframe>
+        </div>
+    </div>
+
+    <div class="pop editos" id="editprofile">
+        <button id="close-sign-pop" onclick="pop_close()">
+            <i class="fas fa-times close-btn"></i>
+        </button>
+        <div class="frame">
+            <form action="/profile-submitted" method="POST" enctype="multipart/form-data">
+                <p><input type="file" name="profile">Upload Profile Picture</p>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="pop editos" id="editcertificate">
+        <button id="close-sign-pop" onclick="pop_close()">
+            <i class="fas fa-times close-btn"></i>
+        </button>
+        <div class="frame">
+            <form action="/cert-submitted" method="POST" enctype="multipart/form-data">
+                <p><input type="file" name="cert">Upload vaccination Certificate</p>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="sidemenubar" id="sidebar">
+        <!-- <button id="slidin" onclick="close_menu()">&#9776</button> -->
+            <a href="/home">HOME</a>
+            <a href="index.html#gallery">ABOUT US</a>
+            <a href="index.html#infrastructure">INFRASTRUCTURE</a>
+            <a href="index.html#vaccination">VACCINATION</a>
+            <a href="index.html#contactus">CONTACT US</a>
+            <a href="#">LOGOUT</a>
+    </div>
+        <nav class="both"id="navbar-dash">
+            <button class="slider" id="slider1" onclick="open_menu()"><ul><li id="d0"></li><li id="d1"></li><li></li></ul>&nbspDashboard</button>
+            <button class="slider" id="slider2" onclick="close_menu()" style="display: none;"><ul><li id="c0"></li><li id="c1"></li><li></li></ul>&nbspDashboard</button>
+            <a class="logo" href="/home"><img src="../static/images/logo.jpg"></a>
+            <div class="nav-links" id="navLinks">
+                <!-- <ul class="heading"><h1 class="head1">MIDTOWN SOCIETY -     Dashboard</h1></ul> -->
+                <ul>
+                    <button class="dropbtn" onmouseenter="drop_menu()" onmouseleave="pick_menu()">
+                        <img src="{{profileaddress}}" alt="AJ">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropit" onmouseenter="drop_menu()" onmouseleave="pick_menu()">
+                        <a class="info-value-con"><i class="fas fa-envelope"></i>&nbsp{{email}}</a>
+                        <a class="info-value-con"><i class="fas fa-mobile"></i>&nbsp{{phone}}</a>
+                        <a class="info-label"><i class="fas fa-building"></i>&nbspFlat Number:&nbsp{{flatno}}</a>
+                        <a class="info-label"><i class="fas fa-calendar-alt"></i>&nbspRegistration Date:&nbsp{{regdate}}</a>
+                        <a class="info-label"><i class="fas fa-calendar-alt"></i>&nbspDate of Birth: &nbsp{{DOB}}</a>
+                        <a class="info-label">
+                            <i class="fas fa-syringe"></i>
+                            &nbsp{{vaccStatus}}&nbsp 
+                            <button onclick="pop_open()" class="view"><i class="fas fa-eye"></i></button>
+                            <button class="update">Update Certificate</button>
+                        </a>
+                        <a class="info-label"><i class="fas fa-hospital-user"></i>&nbspFront-Line Worker: &nbsp{{flineworker}}</a>
+                        <a class="info-label"><i class="fas fa-outdent"></i>&nbspTotal Entry (in month): &nbsp{{incount}}</a>
+                        <a class="info-label"><i class="fas fa-indent"></i>&nbspTotal Exit (in month): &nbsp{{outcount}}</li>
+                        <a class="edit"></a>
+                      </div>
+                </ul>
+            </div>
+            <!-- <div class="intro pallets">
+                <img src="images/pp.jpg" alt="pic is here" class="pic">
+                <p>AJ</p>
+            </div> -->
+            <!-- <div class="menu"><i class="fas fa-bars" onclick="showMenu()" class="menu-btn"></i></div> -->
+        </nav>
+    
+        <section class="main both" id="main-sec"> 
+
+
+    
+            <div class="dashboard">
+                <div class="members pallets">
+                    <h5 class="head"><i class="fas fa-users"></i>&nbspYour Family Members: </h5>
+                    <div class="data">
+                        {% for names in fullname %}
+                        <li><a href="">{{names[0]}} {{names[1]}}</a></li>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <div class="inout-table pallets">
+                    <h5 class="head"><i class="fas fa-database"></i>&nbspActivities: </h5>
+                    <div class="data" id="data-inout">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="table-heading">Sr.No.</th>
+                                    <th class="table-heading">Date</th>
+                                    <th class="table-heading">Time</th>
+                                    <th class="table-heading">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in value %}
+                                <tr>
+                                    <td>{{row[0]}}</td>
+                                    <td>{{row[1]}}</td>
+                                    <td>{{row[2]}}</td>
+                                    <td>{{row[3]}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../static/js/userdashboard.js"></script>
+</body>
+</html>

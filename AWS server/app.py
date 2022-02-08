@@ -4,7 +4,7 @@ import os
 from os.path import join, dirname, realpath
 from werkzeug.utils import secure_filename
 
-connection = pymysql.connect(host="be-project-database-1.chcsrix3zvtg.ap-south-1.rds.amazonaws.com",user="vrunda",password="vrunda1527",db="BE_Project")
+connection = pymysql.connect(host="host-link",user="user-name",password="database-password",db="Database-name")
 cursor = connection.cursor()
 
 app = Flask(__name__)

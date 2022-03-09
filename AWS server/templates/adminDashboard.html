@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN | Society Monitoring System</title>
+    <link rel = "icon" href ="../static/images/logo.jpg" type = "image/x-icon">
+    <link rel="stylesheet" href="../static/css/userDash.css">
+    <link rel="stylesheet" href="../static/css/adminDash.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.1/css/all.css">
+</head>
+<body>
+    <div class="sidemenubar" id="sidebar">
+        <!-- <button id="slidin" onclick="close_menu()">&#9776</button> -->
+            <a href="/home">HOME</a>
+            <a href="index.html#gallery">ABOUT US</a>
+            <a href="index.html#infrastructure">INFRASTRUCTURE</a>
+            <a href="index.html#vaccination">VACCINATION</a>
+            <a href="index.html#contactus">CONTACT US</a>
+            <a href="/logout">LOGOUT</a>
+    </div>
+
+    <nav class="both"id="navbar-dash">
+        <button class="slider" id="slider1" onclick="open_menu()"><ul><li id="d0"></li><li id="d1"></li><li></li></ul>&nbspADMIN</button>
+        <button class="slider" id="slider2" onclick="close_menu()" style="display: none;"><ul><li id="c0"></li><li id="c1"></li><li></li></ul>&nbspADMIN</button>
+        <a class="logo" href="/home"><img src="../static/images/logo.jpg"></a>
+    </nav>
+
+    <section class="main both" id="main-sec">
+
+        <div class="dashboard">
+            <div class="members pallets">
+                <h5 class="head"><i class="fas fa-users"></i>&nbspSearch Society Members: </h5>
+                <br>
+                <form action="/userinfo" method="post" class="search-form">
+                    <br><input type="text" name="name"  placeholder="Enter Name"  value={{name}}  >
+                     &nbsp; 
+                     <input type="text" name="flat"  placeholder="Enter Flat no."  value={{flat}}>
+                     &nbsp;
+                     <button type="submit">Get Data</button>
+                    <br>
+                </form>
+                <br>
+            </div>
+
+            <div class="inout-table pallets">
+                <h5 class="head"><i class="fas fa-database"></i>&nbspActivities: </h5>
+                <div class="data" id="data-inout">
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- <th class="table-heading">Sr.No.</th> -->
+                                <th class="table-heading">Date</th>
+                                <th class="table-heading">Time</th>
+                                <th class="table-heading">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in value %}
+                            <tr>
+                                <!-- <td>{{row[0]}}</td> -->
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/userdashboard.js"></script>
+</body>
+</html>
